@@ -6,7 +6,7 @@
         <id column="id" property="id" />
         <result column="md5" property="md5" />
         <result column="path" property="path" />
-        <result column="uploadTime" property="upload_time" />
+        <result column="upload_time" property="uploadTime" />
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -29,13 +29,13 @@
             update file
             <set>
                 <if test="md5 != null">
-                    md5 = #{md5}
+                    md5 = #{md5},
                 </if>
                 <if test="path != null">
-                    path = #{path}
+                    path = #{path},
                 </if>
                 <if test="uploadTime != null">
-                    uploadTime = #{uploadTime}
+                    upload_time = #{uploadTime},
                 </if>
             </set>
             where id = #{id}

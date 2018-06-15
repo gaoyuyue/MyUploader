@@ -14,19 +14,22 @@ public interface FileDao {
     /**
      * 插入一行数据
      * @param file
+     * @return
      */
-    void save(File file);
+    int save(File file);
 
 
     /**
      * 更新一行数据
      * @param file
+     * @return
      */
-    void update(File file);
+    int update(File file);
 
     /**
      * 删除一行数据
      * @param id
+     * @return
      */
-    void deleteById(Long id);
+    int deleteById(Long id);
 }
