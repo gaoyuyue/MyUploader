@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
+/**
+ * 文件上传
+ */
 @RestController
 @RequestMapping("/File")
 public class FileUploadController {

@@ -7,6 +7,3 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: cn.attackme.myuploader.model
-logging:
-  level:
-    cn.attackme.myuploader : debug
