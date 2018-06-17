@@ -50,8 +50,8 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--<logger name="logback" />-->
     <!--logback.LogbackDemo：类的全路径 -->
 
-    <logger name="cn.attackme.myuploader" level="error" additivity="false">
-        <!--<appender-ref ref="console"/>-->
+    <logger name="cn.attackme.myuploader" level="debug" additivity="false">
+        <appender-ref ref="console"/>
         <appender-ref ref="file"/>
     </logger>
     <!-- ******************** logger：精确配置package或class日志的level、appender end ******************** -->

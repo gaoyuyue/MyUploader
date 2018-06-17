@@ -52,16 +52,16 @@
         from file
         <where>
             <if test="id != null">
-                id = #{id},
+                id = #{id}
             </if>
             <if test="md5 != null">
-                md5 = #{md5},
+                and md5 = #{md5}
             </if>
             <if test="path != null">
-                path = #{path},
+                and path = #{path}
             </if>
             <if test="uploadTime != null">
-                upload_time = #{uploadTime},
+                and upload_time = #{uploadTime}
             </if>
         </where>
     </select>

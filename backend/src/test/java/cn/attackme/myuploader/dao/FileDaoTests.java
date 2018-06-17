@@ -116,4 +116,51 @@ public class FileDaoTests {
     public void testDeleteByNotExitsReturn0() {
         assertEquals(0,fileDao.deleteById(new Long(0)));
     }
+
+    /**
+     * 根据多列查询成功
+     */
+    @Test
+    @Transactional
+    @Rollback
+    public void testGetByFileSuccess() {
+        fileDao.save(testFile);
+        assertNotNull(fileDao.getByFile(testFile));
+    }
+
+    /**
+     * 根据某一列获取不存在的file,返回null
+     */
+    @Test
+    public void testGetByNotExistFileReturnNull() {
+        File file = new File();
+        file.setId(new Long(0));
+        assertNull(fileDao.getByFile(file));
+    }
+
+    /**
+     * File传null, where条件失效, 返回多行, 抛异常
+     */
+    @Test(expected = Exception.class)
+    @Transactional
+    @Rollback
+    public void testGetByNullThrowException() {
+        fileDao.save(testFile);
+        fileDao.save(testFile);
+        fileDao.getByFile(null);
+    }
+
+    /**
+     * 根据不唯一列获取到多条数据, 抛出异常
+     */
+    @Test(expected = Exception.class)
+    @Transactional
+    @Rollback
+    public void testGetByNotUniqueColumnThrowException() {
+        fileDao.save(testFile);
+        fileDao.save(testFile);
+        File file = new File();
+        file.setMd5(testFile.getMd5());
+        fileDao.getByFile(file);
+    }
 }
