@@ -2,7 +2,6 @@ package cn.attackme.myuploader.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
@@ -13,7 +12,6 @@ import java.util.Date;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class File implements Serializable {
 
@@ -23,6 +21,9 @@ public class File implements Serializable {
     private String md5;
     private String path;
     private Date uploadTime;
+
+    public File() {
+    }
 
     public File(String md5, String path, Date uploadTime) {
         this.md5 = md5;
