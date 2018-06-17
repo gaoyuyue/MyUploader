@@ -44,11 +44,21 @@ public class UploadUtils {
     public static void addChunk(String key, Integer chunk, Integer chunks) {
         if (!isExist(key)) {
             synchronized (UploadUtils.class) {
-                if (isExist(key)) {
+                if (!isExist(key)) {
                     chunkMap.put(key, new boolean[chunks]);
                 }
             }
         }
         chunkMap.get(key)[chunk] = true;
+    }
+
+    /**
+     * 从map中删除键为key的键值对
+     * @param key
+     */
+    public static void removeKey(String key) {
+        if (isExist(key)) {
+            chunkMap.remove(key);
+        }
     }
 }

@@ -13,6 +13,7 @@ import java.util.Date;
 
 import static cn.attackme.myuploader.utils.UploadUtils.addChunk;
 import static cn.attackme.myuploader.utils.UploadUtils.isUploaded;
+import static cn.attackme.myuploader.utils.UploadUtils.removeKey;
 
 /**
  * 文件上传服务
@@ -52,6 +53,7 @@ public class FileService {
         FileUtils.writeWithBlok(UploadConfig.path+md5,size,file.getInputStream(),file.getSize(),chunks,chunk);
         addChunk(md5,chunk,chunks);
         if (isUploaded(md5)) {
+            removeKey(md5);
             fileDao.save(new File(md5,UploadConfig.path + md5,new Date()));
         }
     }
