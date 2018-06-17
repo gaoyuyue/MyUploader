@@ -46,4 +46,23 @@
         delete from file where id = #{id}
     </delete>
 
+    <select id="getByFile" parameterType="cn.attackme.myuploader.model.File" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from file
+        <where>
+            <if test="id != null">
+                id = #{id},
+            </if>
+            <if test="md5 != null">
+                md5 = #{md5},
+            </if>
+            <if test="path != null">
+                path = #{path},
+            </if>
+            <if test="uploadTime != null">
+                upload_time = #{uploadTime},
+            </if>
+        </where>
+    </select>
 </mapper>

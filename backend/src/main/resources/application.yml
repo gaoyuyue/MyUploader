@@ -7,3 +7,5 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: cn.attackme.myuploader.model
+upload:
+  path: ./

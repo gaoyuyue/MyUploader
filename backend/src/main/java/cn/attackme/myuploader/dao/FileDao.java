@@ -18,7 +18,6 @@ public interface FileDao {
      */
     int save(File file);
 
-
     /**
      * 更新一行数据
      * @param file
@@ -32,4 +31,11 @@ public interface FileDao {
      * @return
      */
     int deleteById(Long id);
+
+    /**
+     * 根据一个或多个属性获取File
+     * @param file
+     * @return
+     */
+    File getByFile(File file);
 }

@@ -23,4 +23,10 @@ public class File implements Serializable {
     private String md5;
     private String path;
     private Date uploadTime;
+
+    public File(String md5, String path, Date uploadTime) {
+        this.md5 = md5;
+        this.path = path;
+        this.uploadTime = uploadTime;
+    }
 }

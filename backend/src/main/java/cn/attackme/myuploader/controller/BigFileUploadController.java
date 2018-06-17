@@ -10,17 +10,24 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 /**
- * 文件上传
+ * 大文件上传
  */
 @RestController
-@RequestMapping("/File")
-public class FileUploadController {
+@RequestMapping("/BigFile")
+public class BigFileUploadController {
     @Autowired
     private FileService fileService;
 
     @PostMapping("/")
     public void upload(String md5,
+                       Long size,
+                       Integer chunks,
+                       Integer chunk,
                        MultipartFile file) throws IOException {
-        fileService.upload(md5,file);
+        if (chunks != null) {
+            fileService.uploadWithBlock(md5,size,chunks,chunk,file);
+        } else {
+            fileService.upload(md5,file);
+        }
     }
 }
