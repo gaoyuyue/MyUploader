@@ -1,6 +1,6 @@
 <template>
   <div>
-    秒传
+
   </div>
 </template>
 

@@ -7,15 +7,19 @@
             <i class="el-icon-menu"></i>
             <span slot="title">单文件上传</span>
           </el-menu-item>
-          <el-menu-item index="2" @click="redirectUrl('bigFileUpload')">
+          <el-menu-item index="2" @click="redirectUrl('multiFileUpload')">
+            <i class="el-icon-upload"></i>
+            <span slot="title">多文件上传</span>
+          </el-menu-item>
+          <el-menu-item index="3" @click="redirectUrl('bigFileUpload')">
             <i class="el-icon-tickets"></i>
             <span slot="title">大文件上传</span>
           </el-menu-item>
-          <el-menu-item index="3" @click="redirectUrl('stopUpload')">
+          <el-menu-item index="4" @click="redirectUrl('stopUpload')">
             <i class="el-icon-document"></i>
             <span slot="title">断点续传</span>
           </el-menu-item>
-          <el-menu-item index="4" @click="redirectUrl('quickUpload')">
+          <el-menu-item index="5" @click="redirectUrl('quickUpload')">
             <i class="el-icon-upload"></i>
             <span slot="title">秒传</span>
           </el-menu-item>

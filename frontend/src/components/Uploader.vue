@@ -4,9 +4,6 @@
   export default {
     name: "Uploader",
     props: {
-      value: {
-        type: Array
-      },
       browse_button: {
         type: String
       },
@@ -146,13 +143,9 @@
     data() {
       return {
         up: {},
-        files: []
       }
     },
     watch: {
-      files(val) {
-        this.$emit('input', val);
-      },
       up(val) {
         this.$emit('inputUploader', val);
       }
@@ -288,7 +281,6 @@
         }
         let uploader = new plupload.Uploader(prop);
         uploader.init();
-        this.files = uploader.files;
         this.up = uploader;
       }
     },

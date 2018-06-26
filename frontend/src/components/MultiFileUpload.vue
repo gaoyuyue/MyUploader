@@ -1,13 +1,11 @@
 <template>
   <div>
     <uploader
-        browse_button="browse_button"
-        :url="server_config.url+'/BigFile/'"
-        chunk_size="2MB"
-        :filters="{prevent_duplicates:true}"
-        :FilesAdded="filesAdded"
-        :BeforeUpload="beforeUpload"
-        @inputUploader="inputUploader"
+      ref="uploader"
+      browse_button="browse_button"
+      :url="server_config.url+'/File/'"
+      :filters="{prevent_duplicates:true}"
+      @inputUploader="inputUploader"
     />
     <el-button type="primary" id="browse_button">选择多个文件</el-button>
     <br/>
@@ -29,8 +27,7 @@
       <el-table-column
         label="状态">
         <template slot-scope="scope">
-          <span v-if="scope.row.status === -1">正在计算MD5</span>
-          <span v-if="scope.row.status === 1">MD5计算完成，准备上传</span>
+          <span v-if="scope.row.status === 1">准备上传</span>
           <span v-if="scope.row.status === 4" style="color: brown">上传失败</span>
           <span v-if="scope.row.status === 5" style="color: chartreuse">已上传</span>
           <el-progress v-if="scope.row.status === 2" :text-inside="true" :stroke-width="20" :percentage="scope.row.percent"></el-progress>
@@ -49,20 +46,16 @@
 </template>
 
 <script>
-  import FileMd5 from '../models/file-md5.js'
   import Uploader from './Uploader'
   export default {
-    name: 'BigFileUpload',
+    name: "MultiFileUpload",
     data() {
       return {
-        server_config: this.global.server_config,
+        files: [],
         up: {},
-        files:[],
+        server_config: this.global.server_config,
         tableData: []
       }
-    },
-    components: {
-      'uploader': Uploader
     },
     watch: {
       files: {
@@ -86,22 +79,13 @@
         this.up = up;
         this.files = up.files;
       },
-      filesAdded(up, files) {
-        files.forEach((f) => {
-          f.status = -1;
-          FileMd5(f.getNative(), (e, md5) => {
-            f["md5"] = md5;
-            f.status = 1;
-          });
-        });
-      },
       deleteFile(id) {
         let file = this.up.getFile(id);
         this.up.removeFile(file);
-      },
-      beforeUpload(up, file) {
-        up.setOption("multipart_params", {"size":file.size,"md5":file.md5});
       }
+    },
+    components: {
+      'uploader': Uploader
     }
   }
 </script>
@@ -109,4 +93,3 @@
 <style scoped>
 
 </style>
-

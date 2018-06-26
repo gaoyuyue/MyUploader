@@ -4,13 +4,16 @@
         browse_button="browse_button"
         :url="server_config.url+'/File/'"
         :multi_selection="false"
-        v-model="files"
         :FilesAdded="filesAdded"
         @inputUploader="inputUploader"
       />
       <el-button id="browse_button" type="primary">选择文件</el-button>
       <span v-for="file in files">{{file.name}}</span>
-      <el-button type="danger" @click="up.start()">开始上传</el-button>
+      <el-button type="danger" @click="uploadStart()">开始上传</el-button>
+
+      <el-dialog title="正在上传" :visible.sync="dialogTableVisible">
+        <el-progress v-if="files.length>0" :text-inside="true" :stroke-width="20" :percentage="files[0].percent"></el-progress>
+      </el-dialog>
     </div>
 </template>
 
@@ -22,7 +25,25 @@
       return {
         server_config: this.global.server_config,
         files:[],
-        up: {}
+        up: {},
+        dialogTableVisible: false
+      }
+    },
+    computed: {
+      status() {
+        return this.files.length > 0 ? this.files[0].status : null;
+      }
+    },
+    watch: {
+      status() {
+        if (this.status === 5) {
+          this.$confirm('文件上传成功', '提示', {
+            confirmButtonText: '确定',
+            type: 'warning'
+          }).then(() => {
+            this.dialogTableVisible = false;
+          });
+        }
       }
     },
     methods: {
@@ -38,6 +59,11 @@
       },
       inputUploader(up) {
         this.up = up;
+        this.files = up.files;
+      },
+      uploadStart() {
+        this.dialogTableVisible = true;
+        this.up.start();
       }
     },
     components: {
