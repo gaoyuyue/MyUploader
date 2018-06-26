@@ -18,7 +18,7 @@ public class FileUtils {
         OutputStream os = new FileOutputStream(target);
         byte[] buf = new byte[1024];
         int len;
-        while (-1 == (len = src.read(buf))) {
+        while (-1 != (len = src.read(buf))) {
             os.write(buf,0,len);
         }
         os.flush();

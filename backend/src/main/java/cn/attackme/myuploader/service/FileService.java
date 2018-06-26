@@ -31,7 +31,7 @@ public class FileService {
      */
     public void upload(String md5,
                        MultipartFile file) throws IOException {
-        FileUtils.write(md5,file.getInputStream());
+        FileUtils.write(UploadConfig.path + md5,file.getInputStream());
         fileDao.save(new File(md5,UploadConfig.path + md5,new Date()));
     }
 

@@ -10,7 +10,7 @@ import static cn.attackme.myuploader.utils.LogUtils.logToFile;
  * 测试日志功能
  */
 @RestController
-@RequestMapping("/Ex")  
+@RequestMapping("/Ex")
 public class TestExceptionController {
     /**
      * 测试日志切面
