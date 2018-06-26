@@ -2,6 +2,7 @@ package cn.attackme.myuploader.utils;
 
 
 import java.io.*;
+import java.util.UUID;
 
 /**
  * 文件操作工具类
@@ -49,5 +50,13 @@ public class FileUtils {
             randomAccessFile.write(buf,0,len);
         }
         randomAccessFile.close();
+    }
+
+    /**
+     * 生成随机文件名
+     * @return
+     */
+    public static String generateFileName() {
+        return UUID.randomUUID().toString();
     }
 }

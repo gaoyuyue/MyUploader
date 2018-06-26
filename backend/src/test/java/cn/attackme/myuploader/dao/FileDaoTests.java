@@ -32,6 +32,7 @@ public class FileDaoTests {
     public void generateFile() {
         testFile = new File();
         testFile.setMd5("121221212");
+        testFile.setName("test");
         testFile.setUploadTime(new Date());
         testFile.setPath(UUID.randomUUID().toString());
     }
@@ -47,11 +48,11 @@ public class FileDaoTests {
     }
 
     /**
-     * md5为null保存抛异常测试
+     * name为null保存抛异常测试
      */
     @Test(expected = Exception.class)
-    public void testSaveExceptionByMd5IsNull() {
-        testFile.setMd5(null);
+    public void testSaveExceptionByNameIsNull() {
+        testFile.setName(null);
         fileDao.save(testFile);
     }
 

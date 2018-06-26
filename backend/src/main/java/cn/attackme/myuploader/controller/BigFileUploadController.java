@@ -21,15 +21,16 @@ public class BigFileUploadController {
     private FileService fileService;
 
     @PostMapping("/")
-    public void upload(String md5,
+    public void upload(String name,
+                       String md5,
                        Long size,
                        Integer chunks,
                        Integer chunk,
                        MultipartFile file) throws IOException {
         if (chunks != null) {
-            fileService.uploadWithBlock(md5,size,chunks,chunk,file);
+            fileService.uploadWithBlock(name, md5,size,chunks,chunk,file);
         } else {
-            fileService.upload(md5,file);
+            fileService.upload(name, md5,file);
         }
     }
 }

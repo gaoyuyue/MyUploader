@@ -4,13 +4,14 @@
 <mapper namespace="cn.attackme.myuploader.dao.FileDao">
     <resultMap id="BaseResultMap" type="cn.attackme.myuploader.model.File">
         <id column="id" property="id" />
+        <result column="name" property="name" />
         <result column="md5" property="md5" />
         <result column="path" property="path" />
         <result column="upload_time" property="uploadTime" />
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,md5,path,upload_time
+        id,name,md5,path,upload_time
     </sql>
 
     <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -21,13 +22,16 @@
     </select>
 
     <insert id="save" parameterType="cn.attackme.myuploader.model.File" keyProperty="id" useGeneratedKeys="true">
-        insert into file(md5,path,upload_time) values(#{md5},#{path},#{uploadTime})
+        insert into file(name,md5,path,upload_time) values(#{name},#{md5},#{path},#{uploadTime})
     </insert>
 
     <update id="update" parameterType="cn.attackme.myuploader.model.File" >
         <if test="id != null">
             update file
             <set>
+                <if test="name != null">
+                    name = #{name},
+                </if>
                 <if test="md5 != null">
                     md5 = #{md5},
                 </if>
@@ -53,6 +57,9 @@
         <where>
             <if test="id != null">
                 id = #{id}
+            </if>
+            <if test="name != null">
+                and name = #{name}
             </if>
             <if test="md5 != null">
                 and md5 = #{md5}
