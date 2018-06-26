@@ -1,13 +1,18 @@
 <template>
   <div>
-    断点续传
   </div>
 </template>
 
 <script>
-    export default {
-        name: "StopUpload"
+  import Uploader from './Uploader.vue'
+  export default {
+    name: "StopUpload",
+    components: {
+      'my-uploader': Uploader
+    },
+    methods: {
     }
+  }
 </script>
 
 <style scoped>

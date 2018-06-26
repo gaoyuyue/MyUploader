@@ -3,9 +3,9 @@
     <el-container class="my-container">
       <el-aside>
         <el-menu default-active="1">
-          <el-menu-item index="1" @click="redirectUrl('fileUpload')">
+          <el-menu-item index="1" @click="redirectUrl('singleFileUpload')">
             <i class="el-icon-menu"></i>
-            <span slot="title">文件上传</span>
+            <span slot="title">单文件上传</span>
           </el-menu-item>
           <el-menu-item index="2" @click="redirectUrl('bigFileUpload')">
             <i class="el-icon-tickets"></i>
@@ -23,7 +23,6 @@
       </el-aside>
       <el-container>
         <el-header class="my-header">
-
         </el-header>
         <el-main class="my-main">
           <router-view></router-view>
@@ -53,8 +52,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
 }
   .my-container {
     margin: 0 auto;
@@ -65,10 +62,8 @@ export default {
   .my-header {
     background-color: deepskyblue;
     height: 20px;
-
   }
   .my-main {
     margin: 1em 1em;
-    /*background-color: #d4d4d4;*/
   }
 </style>

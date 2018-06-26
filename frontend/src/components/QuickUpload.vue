@@ -5,9 +5,6 @@
 </template>
 
 <script>
-    export default {
-        name: "QuickUpload"
-    }
 </script>
 
 <style scoped>
