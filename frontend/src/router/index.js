@@ -5,6 +5,7 @@ import StopUpload from '../components/StopUpload'
 import QuickUpload from '../components/QuickUpload'
 import SingleFileUpload from '../components/SingleFileUpload'
 import MultiFileUpload from  '../components/MultiFileUpload'
+import PictureUpload from '../components/PictureUpload'
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,7 @@ const routes = [
   {path:'/stopUpload',component:StopUpload},
   {path:'/quickUpload',component:QuickUpload},
   {path:'/multiFileUpload',component:MultiFileUpload},
+  {path:'/pictureUpload',component:PictureUpload},
   {path:'/',component:SingleFileUpload}
 ];
 

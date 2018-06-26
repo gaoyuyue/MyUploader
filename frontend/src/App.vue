@@ -21,7 +21,11 @@
           </el-menu-item>
           <el-menu-item index="5" @click="redirectUrl('quickUpload')">
             <i class="el-icon-upload"></i>
-            <span slot="title">秒传</span>
+            <span slot="title">文件秒传</span>
+          </el-menu-item>
+          <el-menu-item index="6" @click="redirectUrl('pictureUpload')">
+            <i class="el-icon-upload"></i>
+            <span slot="title">图片上传</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
