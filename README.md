@@ -2,8 +2,8 @@
 > 单文件上传，多文件上传，大文件上传，断点续传，文件秒传，图片上传
 
 # 简介
-项目采用前后端分离的方式，实现了常见的文件上传方式。
-前端采用vue.js + plupload + element-ui实现文件上传功能在浏览器端的发送, 后端采用spring boot + spring + spring mvc + mybatis实现文件上传功能在服务器端的接收及存储。
+项目采用前后端分离的方式进行开发，实现了几种常用的文件上传功能。
+前端采用 vue.js + plupload + element-ui 实现了文件在浏览器端的发送, 后端采用 spring boot + spring + spring mvc + mybatis 实现了文件在服务器端的接收和存储。
 # 效果图
 > 演示地址： [https://gaoyuyue.github.io/MyUploader](https://gaoyuyue.github.io/MyUploader)
 >
@@ -137,7 +137,7 @@ export default function (file, callback) {
 使用FileReader读取文件并转成Base64编码字符串, 填入`<image/>`标签的src属性上，即可实现图片预览功能。
 
 **file-url.js**
-```
+```javascript
 export default function (file, callback) {
   if (!file || !/image\//.test(file.type)) return;
   let fileReader = new FileReader();
