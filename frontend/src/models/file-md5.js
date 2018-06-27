@@ -1,6 +1,6 @@
 'use strict';
 
-import SparkMD5 from '../plugins/js-spark-md5.js'
+import '../plugins/js-spark-md5.js'
 
 export default function (file, callback) {
   var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,

@@ -42,19 +42,19 @@
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      defaultActive: this.$route.name
-    }
-  },
-  methods: {
-    redirectUrl(val){
-      this.$router.push(val);
+  export default {
+    name: 'app',
+    data () {
+      return {
+        defaultActive: this.$route.name
+      }
+    },
+    methods: {
+      redirectUrl(val){
+        this.$router.push(val);
+      }
     }
   }
-}
 </script>
 
 <style>
