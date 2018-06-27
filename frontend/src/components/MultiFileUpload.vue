@@ -7,6 +7,9 @@
       :filters="{prevent_duplicates:true}"
       @inputUploader="inputUploader"
     />
+    <el-tag type="warning">不允许选取重复文件</el-tag>
+    <br/>
+    <br/>
     <el-button type="primary" id="browse_button">选择多个文件</el-button>
     <br/>
     <el-table
