@@ -9,12 +9,20 @@
     <el-button id="browse_button" type="primary">选择图片</el-button>
     <br/>
     <br/>
-    <el-row>
-      <el-col :span="4" v-for="(image, index) in images" :key="index" :offset="index > 0 ? 1 : 0">
+    <el-tag type="info">图片预览区域</el-tag>
+    <el-row style="height: 360px; width: 100%; background-color: honeydew" >
+      <el-col style="margin: 20px 20px" :span="4" v-for="(image, index) in images" :key="index" :offset="index > 0 ? 1 : 0">
         <el-card :body-style="{ padding: '0px' }">
           <img width="240px" height="240px" :src="image.src" class="image">
-          <div style="padding: 14px;">
-              <el-button type="text" class="button" @click="deleteFile(index,image.id)">删除</el-button>
+          <hr/>
+          <div style="padding: 5px; display: flex">
+              <div style="flex: 3; display: flex; justify-content:center;align-items:center;">
+                <span v-if="image.file.status === 1" style="color: aqua;">准备上传</span>
+                <span v-if="image.file.status === 4" style="color: brown">上传失败</span>
+                <span v-if="image.file.status === 5" style="color: chartreuse">已上传</span>
+                <el-progress v-if="image.file.status === 2" :text-inside="true" :stroke-width="20" :percentage="image.file.percent"></el-progress>
+              </div>
+              <el-button style="flex: 1" type="text" class="button" @click="deleteFile(index,image.file)">删除</el-button>
           </div>
         </el-card>
       </el-col>
@@ -46,7 +54,7 @@
       changed() {
         let images = [];
         this.files.forEach((e) => {
-          images.push({src: e.imgsrc, id: e.id});
+          images.push({src: e.imgsrc, file: e});
         });
         this.images = images;
       }
@@ -64,9 +72,8 @@
           });
         });
       },
-      deleteFile(index,id) {
+      deleteFile(index,file) {
         this.images.splice(index,1);
-        let file = this.up.getFile(id);
         this.up.removeFile(file);
       }
     }

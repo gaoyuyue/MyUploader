@@ -10,13 +10,13 @@ import PictureUpload from '../components/PictureUpload'
 Vue.use(VueRouter);
 
 const routes = [
-  {path:'/singleFileUpload',component:SingleFileUpload},
-  {path:'/bigFileUpload',component:BigFileUpload},
-  {path:'/stopUpload',component:StopUpload},
-  {path:'/quickUpload',component:QuickUpload},
-  {path:'/multiFileUpload',component:MultiFileUpload},
-  {path:'/pictureUpload',component:PictureUpload},
-  {path:'/',component:SingleFileUpload}
+  {path:'/singleFileUpload',component:SingleFileUpload,name:'singleFileUpload'},
+  {path:'/bigFileUpload',component:BigFileUpload,name:'bigFileUpload'},
+  {path:'/stopUpload',component:StopUpload,name:'stopUpload'},
+  {path:'/quickUpload',component:QuickUpload,name:'quickUpload'},
+  {path:'/multiFileUpload',component:MultiFileUpload,name:'multiFileUpload'},
+  {path:'/pictureUpload',component:PictureUpload,name:'pictureUpload'},
+  {path:'/',component:SingleFileUpload,name:'singleFileUpload'}
 ];
 
 export default new VueRouter({

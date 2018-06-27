@@ -13,7 +13,7 @@
     <br/>
     <el-table
       :data="tableData"
-      style="width: 100%">
+      style="width: 100%; margin: 10px 10px;">
       <el-table-column
         label="文件名">
         <template slot-scope="scope">
