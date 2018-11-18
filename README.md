@@ -30,7 +30,7 @@
 ![](https://i.imgur.com/HFZQnV3.gif)
 # 前端实现
 ## 组件列表
-- 单文件上传（包含文件过滤功能）：[SingleFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/SingleFileUpload.vue)
+- 单文件上传（包含文件过滤功能）：[SingleFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/SingleFileUpload.vue)
 - 多文件上传：[MultiFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/MultiFileUpload.vue)
 - 大文件上传：[BigFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/BigFileUpload.vue)
 - 断点续传：[StopUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/StopUpload.vue)
