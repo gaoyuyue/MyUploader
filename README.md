@@ -31,11 +31,11 @@
 # 前端实现
 ## 组件列表
 - 单文件上传（包含文件过滤功能）：[SingleFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/SingleFileUpload.vue)
-- 多文件上传：[MultiFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/MultiFileUpload.vue)
-- 大文件上传：[BigFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/BigFileUpload.vue)
-- 断点续传：[StopUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/StopUpload.vue)
-- 文件秒传：[QuickUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/QuickUpload.vue)
-- 图片上传：[PictureUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/PictureUpload.vue)
+- 多文件上传：[MultiFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/MultiFileUpload.vue)
+- 大文件上传：[BigFileUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/BigFileUpload.vue)
+- 断点续传：[StopUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/StopUpload.vue)
+- 文件秒传：[QuickUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/QuickUpload.vue)
+- 图片上传：[PictureUpload.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/PictureUpload.vue)
 ## 引入plupload
 > plupload版本: 2.3.6
 > 
@@ -43,7 +43,7 @@
 > 
 > 中文文档： [http://www.phpin.net/tools/plupload/](http://www.phpin.net/tools/plupload/)
 
-为了方便使用我将plupload封装为成一个vue组件[Uploader.vue](https://github.com/gaoyuyue/MyUploader/blob/master/frontend/src/components/Uploader.vue)
+为了方便使用我将plupload封装为成一个vue组件[Uploader.vue](https://github.com/gaoyuyue/MyUploader/blob/master/src/components/Uploader.vue)
 
 **例子：**
 ```vue
